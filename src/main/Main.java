@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
 import fileio.Input;
 import game.Game;
-import gwentstone.GwentStone;
 
 import java.io.File;
 import java.io.IOException;
