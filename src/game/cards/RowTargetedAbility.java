@@ -1,7 +1,14 @@
 package game.cards;
 
-import java.util.List;
+import game.Board;
 
 public interface RowTargetedAbility {
-    void execute(List<MinionCard> row);
+
+    /**
+     * @param board game board
+     * @param targetedRowIdx targeted row index
+     *
+     * executes ability on targeted board row
+     */
+    void execute(Board board, int targetedRowIdx);
 }

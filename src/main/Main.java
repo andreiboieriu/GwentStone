@@ -1,14 +1,14 @@
 package main;
 
 import checker.Checker;
-
+import checker.CheckerConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import checker.CheckerConstants;
+import fileio.ActionsInput;
+import fileio.GameInput;
 import fileio.Input;
 import game.Game;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,6 +20,7 @@ import java.util.Objects;
  * The entry point to this homework. It runs the checker that tests your implentation.
  */
 public final class Main {
+
     /**
      * for coding style
      */
@@ -27,8 +28,8 @@ public final class Main {
     }
 
     /**
-     * DO NOT MODIFY MAIN METHOD
-     * Call the checker
+     * DO NOT MODIFY MAIN METHOD Call the checker
+     *
      * @param args from command line
      * @throws IOException in case of exceptions to reading / writing
      */
@@ -63,17 +64,26 @@ public final class Main {
      * @throws IOException in case of exceptions to reading / writing
      */
     public static void action(final String filePath1,
-                              final String filePath2) throws IOException {
+        final String filePath2) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Input inputData = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH + filePath1),
-                Input.class);
+            Input.class);
 
         ArrayNode output = objectMapper.createArrayNode();
 
         //TODO add here the entry point to your implementation
-        Game game = new Game(inputData);
+        Game game = new Game(inputData.getPlayerOneDecks(), inputData.getPlayerTwoDecks());
 
+        for (GameInput gameInput : inputData.getGames()) {
+            game.newGame();
+            game.startGame(gameInput.getStartGame());
 
+            for (ActionsInput actionsInput : gameInput.getActions()) {
+                game.executeAction(actionsInput, output);
+            }
+
+            game.stopGame();
+        }
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), output);

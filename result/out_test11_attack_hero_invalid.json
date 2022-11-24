@@ -4,11 +4,11 @@
   "y" : 0,
   "output" : {
     "mana" : 1,
-    "attackDamage" : 5,
-    "health" : 8,
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Red", "Purple" ],
-    "name" : "Goliath"
+    "name" : "Goliath",
+    "health" : 8,
+    "attackDamage" : 5
   }
 }, {
   "command" : "getPlayerHero",
@@ -42,11 +42,11 @@
   "playerIdx" : 2,
   "output" : [ {
     "mana" : 1,
-    "attackDamage" : 6,
-    "health" : 3,
     "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
     "colors" : [ "Red", "Black" ],
-    "name" : "Miraj"
+    "name" : "Miraj",
+    "health" : 3,
+    "attackDamage" : 6
   } ]
 }, {
   "command" : "getPlayerMana",
@@ -61,11 +61,11 @@
   "y" : 0,
   "output" : {
     "mana" : 1,
-    "attackDamage" : 6,
-    "health" : 3,
     "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
     "colors" : [ "Black", "White" ],
-    "name" : "Sentinel"
+    "name" : "Sentinel",
+    "health" : 3,
+    "attackDamage" : 6
   }
 }, {
   "command" : "getPlayerHero",
@@ -113,71 +113,71 @@
   "command" : "getCardsOnTable",
   "output" : [ [ {
     "mana" : 1,
-    "attackDamage" : 6,
-    "health" : 3,
     "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
     "colors" : [ "Black", "White" ],
-    "name" : "Sentinel"
+    "name" : "Sentinel",
+    "health" : 3,
+    "attackDamage" : 6
   }, {
     "mana" : 1,
-    "attackDamage" : 5,
-    "health" : 1,
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Purple", "Yellow" ],
-    "name" : "Berserker"
+    "name" : "Berserker",
+    "health" : 1,
+    "attackDamage" : 5
   } ], [ {
     "mana" : 2,
-    "attackDamage" : 5,
-    "health" : 4,
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
-    "name" : "Miraj"
+    "name" : "Miraj",
+    "health" : 4,
+    "attackDamage" : 5
   }, {
     "mana" : 1,
-    "attackDamage" : 6,
-    "health" : 3,
     "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
     "colors" : [ "Red", "Black" ],
-    "name" : "Miraj"
+    "name" : "Miraj",
+    "health" : 3,
+    "attackDamage" : 6
   } ], [ {
     "mana" : 1,
-    "attackDamage" : 5,
-    "health" : 8,
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Red", "Purple" ],
-    "name" : "Goliath"
+    "name" : "Goliath",
+    "health" : 8,
+    "attackDamage" : 5
   }, {
     "mana" : 2,
-    "attackDamage" : 7,
-    "health" : 5,
     "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
     "colors" : [ "Brown", "Blue" ],
-    "name" : "Warden"
+    "name" : "Warden",
+    "health" : 5,
+    "attackDamage" : 7
   } ], [ {
     "mana" : 1,
-    "attackDamage" : 0,
-    "health" : 4,
     "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
     "colors" : [ "Yellow", "White" ],
-    "name" : "Disciple"
+    "name" : "Disciple",
+    "health" : 4,
+    "attackDamage" : 0
   }, {
     "mana" : 1,
-    "attackDamage" : 5,
-    "health" : 2,
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Purple", "Yellow" ],
-    "name" : "Berserker"
+    "name" : "Berserker",
+    "health" : 2,
+    "attackDamage" : 5
   } ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
     "mana" : 1,
-    "attackDamage" : 4,
-    "health" : 8,
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Red", "Purple" ],
-    "name" : "Goliath"
+    "name" : "Goliath",
+    "health" : 8,
+    "attackDamage" : 4
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -189,10 +189,10 @@
     "name" : "Winterfell"
   }, {
     "mana" : 2,
-    "attackDamage" : 7,
-    "health" : 5,
     "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
     "colors" : [ "Brown", "Blue" ],
-    "name" : "Warden"
+    "name" : "Warden",
+    "health" : 5,
+    "attackDamage" : 7
   } ]
 } ]

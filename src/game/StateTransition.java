@@ -1,13 +1,36 @@
 package game;
 
+import fileio.DecksInput;
+import fileio.StartGameInput;
+
 public interface StateTransition {
-    default void initGame() {}
 
-    default void newGame() {}
+    /**
+     * @param playerOneDecks input data for player one decks
+     * @param playerTwoDecks input data for player two decks
+     *
+     * initializes game
+     */
+    default void initGame(DecksInput playerOneDecks, DecksInput playerTwoDecks) {
+    }
 
-    default void startGame() {}
+    /**
+     * resets game data
+     */
+    default void newGame() {
+    }
 
-    default void stopGame() {}
+    /**
+     * @param startGameInput input data
+     *
+     * starts a new game using given data
+     */
+    default void startGame(StartGameInput startGameInput) {
+    }
 
-    // runAction() ???????????
+    /**
+     * stops game
+     */
+    default void stopGame() {
+    }
 }

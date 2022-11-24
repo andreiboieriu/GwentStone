@@ -1,56 +1,101 @@
 package game.cards;
 
 import fileio.CardInput;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CardFactory {
-    private static int heroHealth = 30;
+public final class CardFactory {
 
-    public static Card getCard(CardInput cardInput) {
-        switch(cardInput.getName()) {
+    private static final int HEROHEALTH = 30;
+
+    private CardFactory() {
+    }
+
+    /**
+     * @param cardInput input data
+     * @return Card created from input data
+     */
+    public static Card getCard(final CardInput cardInput) {
+        List<CardProperties> cardPropertiesList = new ArrayList<>();
+
+        switch (cardInput.getName()) {
             case "Sentinel":
             case "Berserker":
+                cardPropertiesList.add(CardProperties.MINION);
+                return new MinionCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
+                    cardPropertiesList, null);
             case "Goliath":
             case "Warden":
-                return new MinionCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                      cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
-                                null);
+                cardPropertiesList.add(CardProperties.MINION);
+                cardPropertiesList.add(CardProperties.FRONTLINE);
+                cardPropertiesList.add(CardProperties.TANK);
+                return new MinionCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
+                    cardPropertiesList, null);
             case "Miraj":
-                return new MinionCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                      cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
-                                      new Skyjack());
+                cardPropertiesList.add(CardProperties.MINION);
+                cardPropertiesList.add(CardProperties.FRONTLINE);
+                return new MinionCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
+                    cardPropertiesList, new Skyjack());
             case "The Ripper":
-                return new MinionCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                      cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
-                                      new WeakKnees());
+                cardPropertiesList.add(CardProperties.MINION);
+                cardPropertiesList.add(CardProperties.FRONTLINE);
+                return new MinionCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
+                    cardPropertiesList, new WeakKnees());
             case "Disciple":
-                return new MinionCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                      cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
-                                      new GodsPlan());
+                cardPropertiesList.add(CardProperties.MINION);
+                return new MinionCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
+                    cardPropertiesList, new GodsPlan());
             case "The Cursed One":
-                return new MinionCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                      cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
-                                      new Shapeshift());
+                cardPropertiesList.add(CardProperties.MINION);
+                return new MinionCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardInput.getHealth(), cardInput.getAttackDamage(),
+                    cardPropertiesList, new Shapeshift());
             case "Firestorm":
-                return new EnvironmentCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                           cardInput.getName(), new Firestorm());
+                cardPropertiesList.add(CardProperties.ENVIRONMENT);
+                return new EnvironmentCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardPropertiesList, new Firestorm());
             case "Winterfell":
-                return new EnvironmentCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                           cardInput.getName(), new Winterfell());
+                cardPropertiesList.add(CardProperties.ENVIRONMENT);
+                return new EnvironmentCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardPropertiesList, new Winterfell());
             case "Heart Hound":
-                return new EnvironmentCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                           cardInput.getName(), new HeartHound());
+                cardPropertiesList.add(CardProperties.ENVIRONMENT);
+                return new EnvironmentCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), cardPropertiesList, new HeartHound());
             case "Lord Royce":
-                return new HeroCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                    cardInput.getName(), heroHealth, new SubZero());
+                cardPropertiesList.add(CardProperties.HERO);
+                return new HeroCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), HEROHEALTH, cardPropertiesList, new SubZero());
             case "Empress Thorina":
-                return new HeroCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                    cardInput.getName(), heroHealth, new LowBlow());
+                cardPropertiesList.add(CardProperties.HERO);
+                return new HeroCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), HEROHEALTH, cardPropertiesList, new LowBlow());
             case "King Mudface":
-                return new HeroCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                    cardInput.getName(), heroHealth, new EarthBorn());
+                cardPropertiesList.add(CardProperties.HERO);
+                return new HeroCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), HEROHEALTH, cardPropertiesList, new EarthBorn());
             case "General Kocioraw":
-                return new HeroCard(cardInput.getMana(), cardInput.getDescription(), cardInput.getColors(),
-                                    cardInput.getName(), heroHealth, new BloodThirst());
+                cardPropertiesList.add(CardProperties.HERO);
+                return new HeroCard(cardInput.getMana(), cardInput.getDescription(),
+                    cardInput.getColors(),
+                    cardInput.getName(), HEROHEALTH, cardPropertiesList, new BloodThirst());
             default:
                 return null;
         }
